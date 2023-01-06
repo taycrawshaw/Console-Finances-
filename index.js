@@ -88,7 +88,7 @@ var finances = [
 ];
 
 
-console.log(finances.length);  // prints total months 
+console.log("Total Months: " + finances.length);  // prints total months 
 
 let total = 0;
 
@@ -99,4 +99,28 @@ for (let i = 0;
 total += finances[i][1];
 }
 
-console.log(total);
+console.log("Total: $"+ total);  // prints total sum 
+
+
+
+//calculate change
+
+let prevmonth = 0;
+let currentmonth = 0;
+let tchange = 0;
+let avgchange
+
+for (let i = 0;
+     i < finances.length; 
+    i++) {
+
+prevmonth = currentmonth;
+
+currentmonth = finances[i][1];
+
+tchange += currentmonth - prevmonth;
+
+    }
+
+    avgchange = tchange / finances.length;
+    console.log("Average Change: $"+ avgchange); // print average change 
