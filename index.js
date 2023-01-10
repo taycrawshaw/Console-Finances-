@@ -95,13 +95,9 @@ let total = 0;
 for (let i = 0;
      i < finances.length; 
     i++) {
-
 total += finances[i][1];
 }
-
 console.log("Total: $"+ total);  // prints total sum 
-
-
 
 //calculate change
 
@@ -115,12 +111,45 @@ for (let i = 0;
     i++) {
 
 prevmonth = currentmonth;
-
 currentmonth = finances[i][1];
+tchange += currentmonth - prevmonth; 
 
-tchange += currentmonth - prevmonth;
 
     }
 
     avgchange = tchange / finances.length;
-    console.log("Average Change: $"+ avgchange); // print average change 
+    console.log("Average Change: $"+ avgchange); // print average change
+    
+
+highest = 0;
+lowest = 0;
+
+changesarray = []
+
+       for (let i = 1; i < finances.length; i++) {
+
+       changesarray.push([finances[i][0], finances[i][1] - finances[i-1][1]])
+      }
+
+
+
+      
+
+for (let i = 1; i < changesarray; i++)  {
+       
+  if (changesarray[i][1] > changesarray[highest][1]) {
+    highest = i;
+       }
+
+  if (changesarray[i][1] < changesarray[lowest][1]) { 
+    lowest = i;
+  }
+}
+
+    
+       console.log(changesarray[highest][0] + ": $" +changesarray[highest][1] );
+       console.log(changesarray[lowest][0] + ": $" +changesarray[lowest][1] );
+
+
+
+       
