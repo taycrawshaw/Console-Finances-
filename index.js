@@ -88,16 +88,16 @@ var finances = [
 ];
 
 
-console.log("Total Months: " + finances.length);  // prints total months 
+
 
 let total = 0;
 
 for (let i = 0;
      i < finances.length; 
     i++) {
-total += finances[i][1];
+total += finances[i][1];  // uses for loop to add total from array to a var of total 
 }
-console.log("Total: $"+ total);  // prints total sum 
+
 
 //calculate change
 
@@ -106,19 +106,20 @@ let currentmonth = 0;
 let tchange = 0;
 let avgchange
 
+
 for (let i = 0;
      i < finances.length; 
     i++) {
 
 prevmonth = currentmonth;
 currentmonth = finances[i][1];
-tchange += currentmonth - prevmonth; 
+tchange += currentmonth - prevmonth;  // adds total change, taking values throughout the loop 
 
 
     }
 
-    avgchange = tchange / finances.length;
-    console.log("Average Change: $"+ avgchange); // print average change
+    avgchange = tchange / finances.length;  //sets  average change
+
     
 
 highest = 0;
@@ -126,16 +127,17 @@ lowest = 0;
 
 changesarray = []
 
-       for (let i = 1; i < finances.length; i++) {
-
-       changesarray.push([finances[i][0], finances[i][1] - finances[i-1][1]])
-      }
+   
 
 
+for (let i = 1; i < finances.length; i++) { 
 
-      
+  changesarray.push([finances[i][0], finances[i][1] - finances[i-1][1]])  // creates array with 1st dimension being dates and 2nd being values of changes 
+ }
 
-for (let i = 1; i < changesarray; i++)  {
+
+
+for (let i = 1; i < changesarray.length ; i++)  {
        
   if (changesarray[i][1] > changesarray[highest][1]) {
     highest = i;
@@ -146,10 +148,16 @@ for (let i = 1; i < changesarray; i++)  {
   }
 }
 
+
     
-       console.log(changesarray[highest][0] + ": $" +changesarray[highest][1] );
-       console.log(changesarray[lowest][0] + ": $" +changesarray[lowest][1] );
 
 
-
-       
+console.log(
+      
+"Financial Analysis \n" +
+"---------------------------- \n" + 
+"Total Months: " + finances.length  +  //prints total months 
+"\nTotal: $"+ total +   // prints total sum
+"\nAverage  Change: $" + avgchange  +   // prints average change 
+"\nGreatest Increase in Profits: " + changesarray[highest][0] + ": $" + changesarray[highest][1] +   // prints greatest increase month & value from newly created array 
+"\nGreatest Decrease in Profits: " + changesarray[lowest][0] + ": $" + changesarray[lowest][1] )   // prints greatest decrease month & value from newly created array 
