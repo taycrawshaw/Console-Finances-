@@ -127,8 +127,7 @@ lowest = 0;
 
 changesarray = []
 
-   
-
+  
 
 for (let i = 1; i < finances.length; i++) { 
 
@@ -137,20 +136,16 @@ for (let i = 1; i < finances.length; i++) {
 
 
 
-for (let i = 1; i < changesarray.length ; i++)  {
+for (let i = 1; i < changesarray.length ; i++)  {    // loop to go through newly created array 
        
-  if (changesarray[i][1] > changesarray[highest][1]) {
+  if (changesarray[i][1] > changesarray[highest][1]) {          // if statement to overwrite 'highest' variable with i if higher than the current value 
     highest = i;
        }
 
-  if (changesarray[i][1] < changesarray[lowest][1]) { 
+  if (changesarray[i][1] < changesarray[lowest][1]) {         // if statement to overwrite 'lowest' variable with i if higher than the current value 
     lowest = i;
   }
 }
-
-
-    
-
 
 console.log(
       
