@@ -1,4 +1,4 @@
-# Console-Finances-
+# Console-Finances
 
 Application to extract financial data from an array and console log average change, as well as greatest increases in profits across the period.
 
